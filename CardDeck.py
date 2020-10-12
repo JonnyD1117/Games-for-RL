@@ -61,24 +61,24 @@ class DeckOfCards:
         new_deck_dict = {} 
 
         for card_index in new_indexing:
-            new_deck_dict[card_index] = self.new_deck[card_index]
+            new_deck_dict[card_index] = self.current_deck[card_index]
 
         return new_deck_dict
 
     def init_shuffle_deck(self):
 
-        shuffled_index = self.current_deck_index
+        shuffled_index = self.current_deck_index[:]
 
         for _ in range(self.num_init_shuffle):
 
             random.shuffle(shuffled_index)
 
-        self.current_deck = self.create_deck_from_index(shuffled_index)
-        self.current_deck_index = shuffled_index
+        self.running_deck = self.create_deck_from_index(shuffled_index)
+        self.running_deck_index = shuffled_index
 
     def shuffle_deck(self):
 
-        shuffled_index = self.current_deck_index
+        shuffled_index = self.current_deck_index[:]
         random.shuffle(shuffled_index)
 
         self.current_deck = self.create_deck_from_index(shuffled_index)
@@ -86,16 +86,19 @@ class DeckOfCards:
 
     def deal_cards(self):
 
+        index_cp = self.running_deck_index[:]
+
         for num_card in range(self.num_card_per_player):
             for player in range(self.num_players):
 
-                card_index = self.running_deck_index[0]
+                card_index = index_cp[0]
 
                 self.player_state[player].append(card_index)
 
-                self.running_deck_index.remove(card_index)
+                index_cp.remove(card_index)
 
-                self.running_deck = self.create_deck_from_index(self.running_deck_index)
+                self.running_deck = self.create_deck_from_index(index_cp)
+                self.running_deck_index = index_cp
                 
     def draw_card(self, player, num_cards_drawn):
 
@@ -131,13 +134,33 @@ class DeckOfCards:
 
 d = DeckOfCards(num_card_per_player=5, num_players=5, num_decks=2)
 
-print(len(d.new_deck_index))
+print(d.new_deck_index)
+print(len(d.running_deck_index))
+print(d.running_deck_index)
+
 d.deal_cards()
 
-print(d.player_state)
+print(d.running_deck_index)
 
-print(len(d.new_deck_index))
+
 print(len(d.running_deck_index))
+
+print(d.new_deck_index)
+
+
+
+
+
+class BlackJack(DeckOfCards):
+
+    def __init__(self):
+        super(BlackJack).__init__()
+
+        pass
+    def hit(self, player):
+        pass
+    def stick(self, player):
+        pass
 
 
 
