@@ -29,8 +29,8 @@ class CardGameMechanics:
         # Generate New Unshuffled Deck of Cards
         new_deck = [i for i in range(self.cards_per_deck*self.num_deck)]
 
-        self.one_deck_ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
-        self.one_deck_suits = ['_S', '_D', '_C', '_H']
+        self.one_deck_ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+        self.one_deck_suits = ["_S", "_D", "_C", "_H"]
         self.card_to_type = self.card_ind_to_type()
 
         # Shuffle Deck if AutoShuffle is Enabled
