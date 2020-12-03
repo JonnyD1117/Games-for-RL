@@ -1,6 +1,20 @@
 # Games-for-RL
 
+This is a Repo of games created to test RL algorithms and perform HW assignments from "Reinforcement Learning" by Sutton and Barto. 
 
+## List of Environments:
+- [ ] Single-Arm Bandit (Chapt2)
+- [ ] The K-armed Bandit (Chapt2)
+- [ ] Recycling Robot (Chapt3)
+- [ ] Pole-Balancing (Chapt3)
+- [ ] Connected 4 Gridworld 
+- [ ] Connected 8 Gridworld
+- [ ] Jack's Car Rental
+- [ ] Gambler's Problem
+- [ ] Blackjack
+- [ ] Off-policy Estimation of Blackjack State Value
+- [ ] Racetrack 
+- [ ] 
 
 ## Generalize Deck of Playing Card Class
 
